@@ -1,0 +1,216 @@
+* {
+    font-family: futura;
+}
+
+.offers {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#offer-heading {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#purchase-options {
+    display: flex;
+    justify-content: center;
+    
+}
+
+#ul-wrap {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+#ul-offer-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 2%;
+    width: fit-content;
+    padding-inline-start: 0px;
+}
+
+#ul-offer-list li {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+}
+
+.product-images {
+    width: 200px;
+}
+
+.offer-items {
+    border: rgb(214, 214, 214) 2px solid;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.offer-items:hover {
+    background-color: #FFCBCC;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+}
+
+.offer-item-selected {
+  background-color: #FFCBCC;
+};
+
+.offer-title {
+    font-size: small;
+}
+
+.price-per-day {
+    font-size: medium;
+}
+
+#terms-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1%;
+    margin-left: 30px;
+    margin-right: 30px;
+    align-content: flex-start;
+    font-size: small;
+}
+
+#js-checkout-button {
+    display: none;
+}
+
+.checkout-button {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+#disabled-checkout-button{
+    background: rgb(214, 214, 214);
+    border: 2px solid rgb(214, 214, 214);
+    text-decoration: none;
+    font-family: Futura;  color: grey;  font-size: large;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    text-decoration: none;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#checkout-button {
+    background: transparent;
+    border: 2px solid #21DCAE;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Futura;  color: #21DCAE;  font-size: large;
+    text-decoration: none;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#checkout-button:hover {
+    background: #21DCAE;
+    border: 2px solid #21DCAE;
+    text-decoration: none;
+    font-family: Futura;  color: #FFf;  font-size: large;
+}
+
+#payment-option-icons {
+    background-color: #F5F4F4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#payment-icons {
+    height:60px;
+}
+
+footer {
+    background-color: #FFCBCC;
+    color: #707070;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 5%;
+    padding-bottom: 9%;
+}
+
+#kk-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#all-rights {
+    display: flex;
+    justify-content: flex-end;
+    font-size: x-small;
+    padding-top: 30px;
+}
+
+@media all and (max-width: 750px) {
+    #ul-offer-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .offer-items {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .checkout-button {
+        margin-bottom: 20px;
+    }
+
+    #kk-logo {
+        padding-top: 30px;
+    }
+}
+
+@media all and (max-width: 460px) {
+    #payment-icons {
+        width:320px;
+        height: inherit;
+    }
+
+    #kk-logo {
+        padding-top: 20px;
+    }
+
+    .checkout-button {
+        margin-bottom: 20px;
+    }
+}
