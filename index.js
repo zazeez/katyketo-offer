@@ -63,18 +63,20 @@ function displayProducts(products) {
   `)
 
   $('#spinner').hide();
+  $('#ul-offer-list').show();
 };
 
 //remove previous items from the cart
 async function emptyCart () {  
   await client.checkout.removeLineItems(checkout.id, lineItemIds);
   lineItemIds = [];
+  showCheckoutButton();
   return;
-
 };
 
 // offer click functions to add items to a checkout and assign the checkout URL to the checkout button
 async function click1month () {
+  showLoadingButton();
   await emptyCart();
 
   const checkoutId = checkout.id;
@@ -95,6 +97,7 @@ async function click1month () {
 
 
 async function click3months() {
+  showLoadingButton();
   await emptyCart();
 
   const checkoutId = checkout.id;
@@ -114,6 +117,7 @@ $('#js-checkout-button').html(`
 };
 
 async function click6months() {
+  showLoadingButton();
   await emptyCart();
 
   const checkoutId = checkout.id;
@@ -134,19 +138,48 @@ $('#js-checkout-button').html(`
 
 // check that both an item are selected and the terms box is checked
 function checkItemsAndTerms () {
+  termChecked = $('#terms').is(":checked");
   if(itemSelected && termChecked) {
     $("#js-checkout-button-disabled").hide();
     $("#js-checkout-button").css('display','flex');
   }
+  else {
+    $("#js-checkout-button-disabled").show();
+    $("#js-checkout-button").css('display','none');
+  }
+}
+
+function showCheckoutButton () {
+  if(termChecked){
+    $('#js-checkout-button').show();
+    $('#js-checkout-button-loading').hide();
+    $('#js-checkout-button-disabled').hide();
+  } else {
+    showDisabledButton();
+  }  
+}
+
+function showLoadingButton () {
+  $('#js-checkout-button-loading').show();
+  $('#js-checkout-button').hide();
+  $('#js-checkout-button-disabled').hide();
+}
+
+function showDisabledButton () {
+  $('#js-checkout-button-disabled').show();
+  $('#js-checkout-button-loading').hide();
+  $('#js-checkout-button').hide();
 }
 
 // listeners for clicks and adjusting highlight color for selected item
 function initializeListeners () {
+  $('#ul-offer-list').hide();
+
   $('#js-1-month').on('click', function(event){
     itemSelected=true;
     $("#js-3-months").removeClass('offer-item-selected');
     $("#js-6-months").removeClass('offer-item-selected');
-    $(event.currentTarget).toggleClass('offer-item-selected');
+    $(event.currentTarget).addClass('offer-item-selected');
     click1month();
   });
 
@@ -154,7 +187,7 @@ function initializeListeners () {
     itemSelected=true;
     $("#js-1-month").removeClass('offer-item-selected');
     $("#js-6-months").removeClass('offer-item-selected');
-    $(event.currentTarget).toggleClass('offer-item-selected');
+    $(event.currentTarget).addClass('offer-item-selected');
     click3months();
   });
 
@@ -162,12 +195,11 @@ function initializeListeners () {
     itemSelected=true;
     $("#js-3-months").removeClass('offer-item-selected');
     $("#js-1-month").removeClass('offer-item-selected');
-    $(event.currentTarget).toggleClass('offer-item-selected');
+    $(event.currentTarget).addClass('offer-item-selected');
     click6months();
   });
   
   $('#terms').on('click', function(){
-    termChecked=true;
     checkItemsAndTerms();
   });
 }
@@ -178,3 +210,4 @@ function bootUp() {
    };
   
    $(bootUp);
+   

@@ -81,6 +81,10 @@ ul {
     font-size: medium;
 }
 
+form {
+    display: inline;
+}
+
 #terms-checkbox {
     display: flex;
     justify-content: center;
@@ -92,9 +96,25 @@ ul {
     font-size: small;
 }
 
-#js-checkout-button {
-    display: none;
+
+
+#checkout-button-loading {
+    background: rgb(214, 214, 214);
+    border: 2px solid rgb(214, 214, 214);
+    text-decoration: none;
+    font-family: Futura;  color: grey;  font-size: large;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    text-decoration: none;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;    
 }
+
 
 .checkout-button {
     background-color: white;
@@ -180,7 +200,7 @@ footer {
     padding-top: 30px;
 }
 
-@media all and (max-width: 750px) {
+@media (max-width:750px) and (min-width: 460px) {
     #ul-offer-list {
         display: flex;
         flex-direction: column;
@@ -200,7 +220,7 @@ footer {
     }
 }
 
-@media all and (max-width: 460px) {
+@media all and (min-width: 320px) {
     #payment-icons {
         width:320px;
         height: inherit;

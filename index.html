@@ -2,18 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>API Hack Capstone</title>
+    <title>Katy Keto Offer</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://sdks.shopifycdn.com/js-buy-sdk/v2/latest/index.umd.min.js"></script>
   </head>
 
   <body>
-    <header>
-        <script src="http://sdks.shopifycdn.com/js-buy-sdk/v2/latest/index.umd.min.js"></script>
-    </header>
-
     <main>
         <section class="offers">
           <div id="offer-heading">
@@ -22,9 +18,9 @@
             </h1>
             <p>Select One Option</p>
           </div>
-          <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" id='spinner'>
+          <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" id='spinner' alt="spinner">
             <div id="ul-wrap">
-            <ul id="ul-offer-list">
+            <ul id="ul-offer-list" class="ul-offer-list">
                 <li class="offer-items" id="js-1-month"></li>
                 <li class="offer-items" id="js-3-months"></li>
                 <li class="offer-items" id="js-6-months"></li>
@@ -33,16 +29,24 @@
         </section>
 
           <div id="terms-checkbox">
-            <input type="checkbox" name="terms" id='terms'> <p>Please accept our <a href="https://katyketo.com/policies/terms-of-service" target="_blank" rel="noopener noreferrer">Subscription Terms</a></p>
-        </div>
+            <form>
+              <input type="checkbox" name="terms" id='terms'> 
+              <label>Please accept our <a href="https://katyketo.com/policies/terms-of-service" target="_blank" rel="noopener noreferrer">Subscription Terms</a> 
+              </label>   
+            </form>
+          </div>
 
           <div class="checkout-button" id="js-checkout-button-disabled">
               <input type="submit" value="Checkout" id="disabled-checkout-button"/>
           </div>
 
-          <div class="checkout-button" id="js-checkout-button">
+          <div class="checkout-button" id="js-checkout-button" style="display:none">
               <input type="submit" value="Checkout" id="checkout-button"/>
           </div>
+
+          <div class="checkout-button loading" id="js-checkout-button-loading" style="display:none">
+            <input type="submit" value="Loading" id="checkout-button-loading"/>
+        </div>
 
           <div id="payment-option-icons">
             <img src="https://cdn.shopify.com/s/files/1/0102/0939/4769/files/Screen_Shot_2020-01-24_at_5.58.09_PM_759f2e27-f6a1-41fd-a794-f475c96df2e6.png?v=1579913417" alt="payment option icons" id="payment-icons">
